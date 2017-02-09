@@ -10,8 +10,12 @@ cite {
 }
 
 #external-links ul {
+  width: 20%;
   list-style-type: none;
   padding-left: 0px;
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
 }
 
 /* you're welcome to edit the
@@ -29,4 +33,28 @@ figure {
 figcaption {
   font-style: italic;
   text-align: right;
+}
+
+body {
+  max-width: 960px;
+  min-width: 40px;
+}
+
+main {
+  width: 75%;
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  figcaption {
+    font-size: 75%;
+  }
 }
