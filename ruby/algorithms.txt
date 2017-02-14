@@ -1,0 +1,18 @@
+- Is the elevator currently on the ground floor?
+	- If no, move to ground floor
+	- If yes, move to next step
+- Is there a specific floor to go to?
+	- If no, stay put
+	- If yes, select the button of the desired floor number
+
+Really vague instructions for the above release. "Write the algorithm for using an elevator." Would really appreciate a little more description in terms of standard robot knowledge and acceptance criteria. Had to stop after an hour of brainstorming endless conditions for a robot to use an elevator.
+
+
+Taking medication pills
+- Wake up in the morning
+- Did you eat breakfast?
+	- If yes, take pills
+	- If no, put pills in pocket and wait
+- Did you eat lunch and not take pills?
+	- If yes, take pills
+	- If no, get food now and take pills together
