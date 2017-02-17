@@ -35,8 +35,19 @@ else
 	signup = false
 end
 
-if match == true && (willing == true || signup == true)
-	puts "Probably not a vampire."
+obvious_name = false
+if name.downcase == "drake cula" || name.downcase == "tu fang"
+	puts "Definitely a vampire"
+	obvious_name = true
 else
-	puts "Results inconclusive."
+	obvious_name = false
+end
+
+while obvious_name == false
+	if match == true && (willing == true || signup == true)
+		puts "Probably not a vampire."
+	elsif match == false && (willing == false || signup == false)
+		puts "Probably a vampire."
+	end
+	obvious_name = true
 end
