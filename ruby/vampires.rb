@@ -1,3 +1,9 @@
+puts "How many employees will be processed?"
+employees = gets.chomp.to_i
+
+timer = 0 
+until timer == employees
+
 puts "What is your name?"
 name = gets.chomp
 
@@ -54,4 +60,7 @@ while obvious_name == false
 	  puts "Results inconclusive"
 	end
 	obvious_name = true
+end
+
+timer += 1
 end
