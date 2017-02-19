@@ -2,6 +2,7 @@ puts "How many employees will be processed?"
 employees = gets.chomp.to_i
 
 timer = 0 
+
 until timer == employees
 
 puts "What is your name?"
@@ -34,6 +35,20 @@ end
 puts "Would you like to enroll in the company's health insurance?"
 health_insurance = gets.chomp
 
+variable = false
+until variable == true
+puts "Any allergies? (please type 'done' when finished)"
+allergies = gets.chomp
+if allergies == "sunshine"
+  puts "Probably a vampire"
+  variable = true
+elsif allergies == "done"
+  variable = true
+else
+  variable = false
+end
+end
+
 signup = false
 if health_insurance.downcase == "yes" || health_insurance.downcase == "ya" || health_insurance.downcase == "y"
 	signup = true
@@ -49,6 +64,7 @@ else
 	obvious_name = false
 end
 
+if allergies != "sunshine"
 while obvious_name == false
 	if match == true && (willing == true || signup == true)
 		puts "Probably not a vampire."
@@ -61,6 +77,16 @@ while obvious_name == false
 	end
 	obvious_name = true
 end
+end
 
 timer += 1
 end
+
+
+
+
+
+
+
+
+
