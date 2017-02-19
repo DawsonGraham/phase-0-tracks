@@ -46,8 +46,12 @@ end
 while obvious_name == false
 	if match == true && (willing == true || signup == true)
 		puts "Probably not a vampire."
+	elsif match == false && willing == false && signup == false
+	  puts "Almost certainly a vampire"
 	elsif match == false && (willing == false || signup == false)
 		puts "Probably a vampire."
+	else
+	  puts "Results inconclusive"
 	end
 	obvious_name = true
 end
