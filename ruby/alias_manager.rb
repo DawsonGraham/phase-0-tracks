@@ -25,22 +25,28 @@ alias_array.delete_at(2)
 
 alias_array = alias_array.join
 alias_array = alias_array.split('')
-p alias_array
+
 alias_array.each do |x|
-	if x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u'
-		x
-	else
-		x.next!
-	end
-	end
-	next_vowel(alias_array)
-	p alias_array
-	alias_array = alias_array.join
-	alias_array.insert(gap, " ")
-	p alias_array
+  if x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u'
+    x
+  else
+    x.next!
+  end
+  end
+  next_vowel(alias_array)
+  alias_array = alias_array.join
+  alias_array.insert(gap, " ")
+  p alias_array
 end
 
 alias_manager("Felicia Torres")
 
-test = ['a','e','o']
-next_vowel(test)
+# I tested this code below to ensure that my next_vowel method was working properly.
+# It functioned properly for the test, however fails to work correctly when within my alias_manager method.
+#test = ['a','e','o']
+#next_vowel(test)
+
+puts "Give me a name and I'll give you an Alias"
+user_alias = gets.chomp
+
+alias_manager(user_alias)
