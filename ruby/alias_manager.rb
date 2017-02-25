@@ -46,7 +46,14 @@ alias_manager("Felicia Torres")
 #test = ['a','e','o']
 #next_vowel(test)
 
-puts "Give me a name and I'll give you an Alias"
+counter = false
+until counter == true
+puts "Give me a name and I'll give you an Alias (type 'quit' to escape)"
 user_alias = gets.chomp
-
+if user_alias == 'quit'
+  counter = true
+else
 alias_manager(user_alias)
+end
+end
+
