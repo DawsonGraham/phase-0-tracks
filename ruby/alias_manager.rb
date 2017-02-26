@@ -36,24 +36,27 @@ alias_array.each do |x|
   next_vowel(alias_array)
   alias_array = alias_array.join
   alias_array.insert(gap, " ")
-  p alias_array
+  p "#{name} is also known as #{alias_array}"
 end
 
 alias_manager("Felicia Torres")
 
-# I tested this code below to ensure that my next_vowel method was working properly.
+# I tested this commented-code below to ensure that my next_vowel method was working properly.
 # It functioned properly for the test, however fails to work correctly when within my alias_manager method.
 #test = ['a','e','o']
 #next_vowel(test)
+
+alias_names = []
 
 counter = false
 until counter == true
 puts "Give me a name and I'll give you an Alias (type 'quit' to escape)"
 user_alias = gets.chomp
-if user_alias == 'quit'
+if user_alias == 'quit' || user_alias == ''
   counter = true
 else
-alias_manager(user_alias)
+alias_names << alias_manager(user_alias)
 end
 end
 
+p alias_names
