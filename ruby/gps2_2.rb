@@ -44,6 +44,15 @@ grocery_update(final_grocery_list, "Ice-Cream", 1)
 
 print_method(final_grocery_list)
 
+# I learned just how valuable pseudocode can be, whereas in assignments prior I would just dive right into the coding
+# The tradeoffs of using arrays and hashes is that it is much simpler and easier to manage and update hash keys and values, whereas arrays are good for splitting user input into data sets.
+# A method returns an output
+# You can pass just about anything as an argument into a method
+# You can pass information between methods by re-assigning their value to have the info be outputted
+# I solidified my understanding of the usefulness of pseudocoding. I guess I'm still a little unclear how to transfer outputs from one method to be applied as an input for another method.
+
+
+
  
 
 
