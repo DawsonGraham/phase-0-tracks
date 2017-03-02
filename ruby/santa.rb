@@ -51,8 +51,7 @@ example_genders.length.times do |i|
 	  santa.speak
 end
 
-santa.gender=("female")
-puts "This Santa is a #{santa.gender}."
+p santa
 
 get_mad_at("Dasher")
 
