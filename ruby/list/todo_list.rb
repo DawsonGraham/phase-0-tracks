@@ -1,8 +1,6 @@
 class TodoList
-   def initialize(item1, item2)
-     @chores = []
-     @chores.push item1
-     @chores.push item2
+   def initialize(arr)
+     @chores = arr
      @chores
    end
 
@@ -26,7 +24,7 @@ class TodoList
    end
 end
 
-list = TodoList.new("do the dishes", "moe the lawn")
+list = TodoList.new(["do the dishes", "mow the lawn"])
 p list.get_items
 
 p list.add_item("mop")
