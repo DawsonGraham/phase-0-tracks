@@ -11,7 +11,7 @@ class WordGame
   def user_secret_word(x)
     @secret_word = x 
     @guess_count = x.length
-    p @guess_count
+    "#{@guess_count} guesses!"
     @counter = @guess_count
   end
   
