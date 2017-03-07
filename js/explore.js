@@ -5,7 +5,12 @@ function reverse(str) {
 var str_array = str.split("")
 var str_array_reverse = str_array.reverse();
 var str_reverse = str_array_reverse.join("");
-console.log(str_reverse)
+return str_reverse
 }
 
-reverse("hello")
+var reversed_str;
+reversed_str = reverse("hello");
+
+for (var i = 0; 3 > i; i++ ) {
+  console.log(reversed_str);
+}
