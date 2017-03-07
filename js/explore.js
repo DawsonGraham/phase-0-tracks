@@ -1,5 +1,5 @@
-# Take a string as a parameter. Split the string into an array.
-# Reverse the array. Join the area without any spaces/characters.
+// Take a string as a parameter. Split the string into an array.
+// Reverse the array. Join the area without any spaces/characters.
 
 function reverse(str) {
 var str_array = str.split("")
