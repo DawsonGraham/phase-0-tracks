@@ -1,4 +1,4 @@
-// Write a function that takes an array of words (strings)
+// Write a function that takes an array of words or phrases (strings)
 // Return the longest word or string in the array
 
 var length = 0;
@@ -15,3 +15,7 @@ function Array(string_array) {
 }
 
 var newarray = new Array (["Red","Blue", "Green", "Magenta"])
+
+var animals = ["Lizard", "Crocodile", "Hippopotamus"]
+
+var testArray = new Array(animals)
