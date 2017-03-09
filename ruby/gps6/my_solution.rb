@@ -1,8 +1,6 @@
 # Virus Predictor
 # I worked on this challenge with Thomas Feng.
-
 # We spent 1.5 hours on this challenge.
-
 # EXPLANATION OF require_relative
 #require_relative allows one ruby file to access the class and methods of other local ruby files
 #require allows the use built in methods
