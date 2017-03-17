@@ -1,0 +1,40 @@
+Release 2:
+
+1)  SELECT * FROM restaurants;
+1|Luigi's Pizza|5101234567|false|1
+2|Granny's Greens|9259876534|true|2
+3|Hawt Dawgs|123456789|true|1
+4|The Garden|2222222232|false|2
+5|Bob's Burgers|4150001234|true|1
+
+2)  UPDATE restaurants SET number=3333333323 WHERE name="The Garden";
+
+3) SELECT * FROM restaurants, suppliers WHERE restaurants.supplier_id = suppliers.id;
+1|Luigi's Pizza|5101234567|false|1|1|My-T-Fine Meats
+2|Granny's Greens|9259876534|true|2|2|Proper Produce
+3|Hawt Dawgs|123456789|true|1|1|My-T-Fine Meats
+4|The Garden|3333333323|false|2|2|Proper Produce
+5|Bob's Burgers|4150001234|true|1|1|My-T-Fine Meats
+
+4) SELECT restaurants.name, suppliers.name FROM restaurants JOIN suppliers ON restaurants.supplier_id = suppliers.id;
+Luigi's Pizza|My-T-Fine Meats
+Granny's Greens|Proper Produce
+Hawt Dawgs|My-T-Fine Meats
+The Garden|Proper Produce
+Bob's Burgers|My-T-Fine Meats
+
+5) sqlite> DELETE FROM restaurants WHERE name="Hawt Dawgs";
+
+Release 3:
+
+	SELECT restaurants.name, suppliers.name FROM restaurants LEFT JOIN suppliers ON restaurants.supplier_id = suppliers.id;
+	Luigi's Pizza|My-T-Fine Meats
+	Granny's Greens|Proper Produce
+	The Garden|Proper Produce
+	Bob's Burgers|My-T-Fine Meats
+
+	SELECT * FROM restaurants INNER JOIN suppliers ON restaurants.supplier_id = suppliers.id;
+	1|Luigi's Pizza|5101234567|false|1|1|My-T-Fine Meats
+	2|Granny's Greens|9259876534|true|2|2|Proper Produce
+	4|The Garden|3333333323|false|2|2|Proper Produce
+	5|Bob's Burgers|4150001234|true|1|1|My-T-Fine Meats
