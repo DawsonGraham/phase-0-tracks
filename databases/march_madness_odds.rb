@@ -34,7 +34,7 @@ remaining_teams = {
 	"Baylor" => 25,
 	"South Carolina" => 100,
 	"Purdue" => 40,
-	"URI" => 300,
+	"Rhode Island" => 300,
 	"Arkansas" => 500,
 	"Butler" => 50,
 	"Cincinnati" => 100
@@ -44,7 +44,11 @@ def insert_team(db, name, odds)
 	db.execute("INSERT INTO march_madness (name, odds) VALUES (?, ?)", [name, odds])
 end
 
-insert_team(db, "Creighton", 60)
+prepare = db.prepare("INSERT INTO march_madness (name, odds) VALUES (?, ?)")
+remaining_teams.each do |k, v|
+	prepare.execute(k, v)
+end
+
 madness = db.execute("SELECT * FROM march_madness")
 madness.each do |team|
 	puts "#{team['name']} has a #{team['odds']} to 1 chance of winning the NCAA Championship."
