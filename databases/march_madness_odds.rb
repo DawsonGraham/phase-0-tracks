@@ -44,30 +44,30 @@ def insert_team(db, name, odds)
 	db.execute("INSERT INTO march_madness (name, odds) VALUES (?, ?)", [name, odds])
 end
 
+check = db.execute("SELECT odds FROM march_madness WHERE name= 'Arkansas'")
+p check
+if check == [{"odds"=>500, 0=>500}]
+else
 prepare = db.prepare("INSERT INTO march_madness (name, odds) VALUES (?, ?)")
 remaining_teams.each do |k, v|
-	prepare.execute(k, v)
+prepare.execute(k, v)
 end
+end
+
 
 madness = db.execute("SELECT * FROM march_madness")
 madness.each do |team|
 	puts "#{team['name']} has a #{team['odds']} to 1 chance of winning the NCAA Championship."
 end
 
+# DRIVER CODE
+#puts "Provide me with an NCAA basketball team and I'll tell you their chances of winning March Madness!"
+#user_team = gets.chomp
 
+def user_team_odds (user_team)
+	user_results = db.execute("SELECT * FROM march_madness WHERE name = user_team")
+	p user_results
+end
 
+# user_team_odds(user_team)
 
-# remaining_teams.each do |team, chances|
-# 	insert_team(db, team, chances)
-#  end
-
-# madness = db.execute("SELECT * FROM march_madness")
-# madness.each do |team|
-#	puts "#{team['name']} has a #{team['odds']} to 1 chance of winning the NCAA Championship."
-# end
-
-# remaining_teams.each do |key, value|
-# 	db.execute("INSERT INTO march_madness (name, odds) VALUES (key, value)")
-# end
-# db.execute("INSERT INTO march_madness (name, odds) VALUES (Wichita_State, 100)")
-# db.execute("SELECT * FROM march_madness")
