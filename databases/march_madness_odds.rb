@@ -61,7 +61,7 @@ end
 # Quick check for the condition statement
 # madness = db.execute("SELECT * FROM march_madness")
 # madness.each do |team|
-#	puts "#{team['name']} has a #{team['odds']} to 1 chance of winning the NCAA Championship."
+#    puts "#{team['name']} has a #{team['odds']} to 1 chance of winning the NCAA Championship."
 # end
 
 # DRIVER CODE
