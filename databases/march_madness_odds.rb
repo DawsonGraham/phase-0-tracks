@@ -1,4 +1,5 @@
 # March Madness basketball - odds to win championship generator based on user-inputted team name.
+# Will also return the potential payout if $10 were bet on user-input team.
 
 require 'sqlite3'
 
@@ -15,7 +16,7 @@ SQL
 
 db.execute(create_table)
 
-
+# Create hash of remaining March Madness NCAA basketball teams with their odds to win the championship as the values
 remaining_teams = {
 	"Duke" => 8,
 	"Kentucky" => 6,
@@ -40,18 +41,21 @@ remaining_teams = {
 	"Cincinnati" => 100
 }
 
-def insert_team(db, name, odds)
-	db.execute("INSERT INTO march_madness (name, odds) VALUES (?, ?)", [name, odds])
-end
+# Made this method below just to ensure db and sql communications were working properly
+# def insert_team(db, name, odds)
+#	db.execute("INSERT INTO march_madness (name, odds) VALUES (?, ?)", [name, odds])
+# end
 
+# Just chose to select Arkansas as they had a unique odds number of 500
 check = db.execute("SELECT odds FROM march_madness WHERE name= 'Arkansas'")
 # p check
 if check == [{"odds"=>500, 0=>500}]
 else
-prepare = db.prepare("INSERT INTO march_madness (name, odds) VALUES (?, ?)")
-remaining_teams.each do |k, v|
-prepare.execute(k, v)
-end
+# populate database with each key-value pairs from remaining_teams hash
+	prepare = db.prepare("INSERT INTO march_madness (name, odds) VALUES (?, ?)")
+	remaining_teams.each do |k, v|
+	prepare.execute(k, v)
+	end
 end
 
 # Quick check for the condition statement
@@ -61,14 +65,25 @@ end
 # end
 
 # DRIVER CODE
-puts "Provide me with an NCAA basketball team and I'll tell you their chances of winning March Madness!"
-user_team = gets.chomp
+spelling = false
+until spelling == true
+	puts "Provide me with an NCAA basketball team and I'll tell you their chances of winning March Madness!"
+	user_team = gets.chomp
 
 def user_team_odds (db, user_team)
 	user_results = db.execute("SELECT odds FROM march_madness WHERE name= '#{user_team}'")
 	user_odds = user_results[0]
-	puts "#{user_team} has a #{user_odds["odds"]} in 1 chance of winning the NCAA Championship!"
+	final_user_odds = user_odds["odds"]
+	payout = 10 * final_user_odds
+	puts "#{user_team} has a #{final_user_odds} in 1 chance of winning the NCAA Championship! If you bet $10 on them to win, you would receive a payout of $#{payout}."
 end
 
-user_team_odds(db, user_team)
+if remaining_teams.include? (user_team)
+	user_team_odds(db, user_team)
+	spelling = true
+else
+	puts "Whoops! Looks like there may have been a typo. Please only enter the university name."
+end
+end
+
 
