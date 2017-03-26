@@ -51,7 +51,7 @@ get '/contact' do
   "Contact us at 123-456-7890 or stop by at 111 Made-Up Lane, somewhere in California"
 end
 
-get '/great_job/name' do 
+get '/great_job/:name' do 
   person = params[:name]
   "Good job #{person}!!"
 end
@@ -59,6 +59,11 @@ end
 get '/great_job' do 
   "Good job!"
 end
+
+get '/add/:number1/:number2' do
+  "#{params[:number1].to_i + params[:number2].to_i}"
+end
+
 
 
 
