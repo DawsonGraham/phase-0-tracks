@@ -1,7 +1,7 @@
 # require gems
-require 'sinatra'
 require 'sqlite3'
-require 'sinatra-reloader'
+require "sinatra"
+require "sinatra/reloader" if development?
 
 db = SQLite3::Database.new("students.db")
 db.results_as_hash = true
