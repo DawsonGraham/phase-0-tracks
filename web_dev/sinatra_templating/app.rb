@@ -30,7 +30,6 @@ get '/students_campus/:campus' do
  campus = params[:campus]
  students = db.execute("SELECT * FROM students WHERE campus=?", campus)
  students
- erb :students_campus
 end
 
 # add static resources
